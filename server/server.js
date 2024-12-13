@@ -35,7 +35,6 @@ const resolvers = {
       return users.find((user) => user.id === id);
     },
   },
-
   Mutation: {
     createUser: (parent, args) => {
       const { name, age, isMarried } = args;
@@ -45,8 +44,8 @@ const resolvers = {
         age,
         isMarried,
       };
-
-      return users.push(newUser);
+      console.log(newUser);
+      users.push(newUser);
     },
   },
 };
@@ -57,7 +56,7 @@ const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },
 });
 
-console.log(`Server running at: ${url}`);
+console.log(`Server Running at: ${url}`);
 
-//// Query, Mutation
+///// Query, Mutation
 //// typeDefs, resolvers
